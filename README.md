@@ -7,6 +7,43 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/a58ff79407212e2beacb/maintainability)](https://codeclimate.com/github/oauth2-proxy/oauth2-proxy/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/a58ff79407212e2beacb/test_coverage)](https://codeclimate.com/github/oauth2-proxy/oauth2-proxy/test_coverage)
 
+# Oauth2-proxy forked for Liquid Investigations
+
+This fork adds a `liquid` provider to replace <authproxy url>, you can find it under `providers/liquid.go`. All other providers have been disabled.
+
+Environment variables specific for the liquid provider:
+
+- `LIQUID_HTTP_PROTOCOL` - must be set to `http` or `https`
+- `LIQUID_DOMAIN` - domain name of the auth provider service, e.g. liquid.example.org 
+- `LIQUID_ENABLE_HYPOTHESIS_HEADERS` - if set, sets the X-Forwarded-User header to `acct:USERNAME@LIQUID_DOMAIN` instead of just the username. This is required by Hypothesis only.
+
+Example usage, with other relevant configs set:
+
+
+- `OAUTH2_PROXY_CLIENT_ID` = CLIENT_ID
+- `OAUTH2_PROXY_CLIENT_SECRET` = CLIENT_SECRET
+- `OAUTH2_PROXY_COOKIE_SECRET` = "28654d2ed1e9fe3e"
+- `OAUTH2_PROXY_EMAIL_DOMAIN` = *
+- `OAUTH2_PROXY_HTTP_ADDRESS` = "0.0.0.0:5000"
+- `OAUTH2_PROXY_PROVIDER` = "liquid"
+- `OAUTH2_PROXY_REDEEM_URL` = "http://10.66.60.1:8768/o/token/"
+- `OAUTH2_PROXY_PROFILE_URL` = "http://10.66.60.1:8768/accounts/profile"
+- `OAUTH2_PROXY_REDIRECT_URL` = "http://hoover.liquid.example.org/oauth2/callback"
+- `OAUTH2_PROXY_COOKIE_HTTPONLY` = false
+- `OAUTH2_PROXY_COOKIE_SECURE` = false
+- `OAUTH2_PROXY_SKIP_PROVIDER_BUTTON` = true
+- `OAUTH2_PROXY_SET_XAUTHREQUEST` = true
+- `OAUTH2_PROXY_SSL_INSECURE_SKIP_VERIFY` = true
+- `OAUTH2_PROXY_SSL_UPSTREAM_INSECURE_SKIP_VERIFY` = true
+- `OAUTH2_PROXY_WHITELIST_DOMAINS` = ".liquid.example.org"
+- `OAUTH2_PROXY_REVERSE_PROXY` = true
+- `LIQUID_DOMAIN` = liquid.example.org
+- `LIQUID_HTTP_PROTOCOL` = http
+- `OAUTH2_PROXY_UPSTREAMS` = "http://10.66.60.1:20341"
+
+---
+
+
 A reverse proxy and static file server that provides authentication using Providers (Google, GitHub, and others)
 to validate accounts by email, domain or group.
 
