@@ -9,7 +9,7 @@
 
 # Oauth2-proxy forked for Liquid Investigations
 
-This fork adds a `liquid` provider to replace <authproxy url>, you can find it under `providers/liquid.go`. All other providers have been disabled.
+This fork adds a `liquid` provider to replace <https://github.com/liquidinvestigations/authproxy/>, you can find it under `providers/liquid.go`.
 
 Environment variables specific for the liquid provider:
 
