@@ -39,13 +39,13 @@ var (
 	LiquidDefaultLoginURL = &url.URL{
 		Scheme: LiquidScheme,
 		Host:   LiquidHost,
-		Path:   "/o/authorize",
+		Path:   "/o/authorize/",
 	}
 
 	LiquidDefaultRedeemURL = &url.URL{
 		Scheme: LiquidScheme,
 		Host:   LiquidHost,
-		Path:   "/o/token",
+		Path:   "/o/token/",
 	}
 
 	LiquidDefaultProfileURL = &url.URL{
